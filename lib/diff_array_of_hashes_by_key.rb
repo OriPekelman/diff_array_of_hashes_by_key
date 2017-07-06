@@ -8,7 +8,7 @@ module DiffArrayOfHashesByKey
   end
   
   def changed(array_to_compare, key: "id", timestamp: nil)
-    add_time_stamp(array_to_compare.reject{|v| v == self.select{|x|x[key]==v[key]}[0] || []} - self.created(array_to_compare), timestamp)
+    add_time_stamp(array_to_compare.reject{|v| v == self.select{|x|x[key]==v[key]}[0]} - self.created(array_to_compare), timestamp)
   end
   
   def deleted(array_to_compare, key: "id", timestamp: nil)

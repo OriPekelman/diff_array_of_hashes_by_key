@@ -1,6 +1,6 @@
 # Diff Array Of Hashes By Key
 
-This is a simple diff of arrays of hashes. The hashes are assumed to have a unique key.
+This is a simple ruby diff of arrays of hashes. The hashes are assumed to have a unique key.
 It allows to see what hashes were created, what were modified and what were deleted from the array.
 
 What is this useful for ?  imagine you get a static daily export of data. But what you really want is a diff between yesterday and today, so you can emit change events..?
@@ -45,14 +45,14 @@ This gem monkey-patches Array, because I am old style
     ]
     
     a.diff(b, key: "id")
-    ```
+```
 
       => {:created=>[{"id"=>"4", "foobar"=>"created"}], :changed=>[{"id"=>"2", "bar"=>"changed"}], :deleted=>[{"id"=>"1", "foo"=>"bar"}, {"id"=>"3", "foobar"=>"to_be_deleted"}]}
       
 ```ruby
     a.diff(b, key: "id", timestamp: Time.now())
-    ```
-    
+```
+
     => {:created=>[{"id"=>"4", "foobar"=>"created", "timestamp"=>2017-07-06 21:13:32 +0200}], :changed=>[], :deleted=>[{"id"=>"3", "foobar"=>"to_be_deleted", "timestamp"=>2017-07-06 21:13:32 +0200}]}    
 
 ## Development

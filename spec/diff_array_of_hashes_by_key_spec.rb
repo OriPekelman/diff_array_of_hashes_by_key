@@ -35,7 +35,7 @@ RSpec.describe DiffArrayOfHashesByKey do
     diff = {
       :changed => [{"id"=>"2", "bar"=>"changed"}],
       :created => [{"id"=>"4", "foobar"=>"created"}],
-      :deleted => [{"id"=>"1", "foo"=>"bar"}, {"id"=>"3", "foobar"=>"to_be_deleted"}]
+      :deleted => [{"id"=>"3", "foobar"=>"to_be_deleted"}]
     }
     expect(@a.diff(@b,key: @key, timestamp: @timestamp)).to eq(diff)
   end
@@ -44,7 +44,7 @@ RSpec.describe DiffArrayOfHashesByKey do
     diff = {
       :changed => [{"id"=>"2", "bar"=>"changed", "timestamp"=>1499367480}],
       :created => [{"id"=>"4", "foobar"=>"created", "timestamp"=>1499367480}],
-      :deleted => [{"id"=>"1", "foo"=>"bar", "timestamp"=>1499367480}, {"id"=>"3", "foobar"=>"to_be_deleted", "timestamp"=>1499367480}]
+      :deleted => [{"id"=>"3", "foobar"=>"to_be_deleted", "timestamp"=>1499367480}]
     }
     expect(@a.diff(@b, key: @key, timestamp: @timestamp)).to eq(diff)
   end
